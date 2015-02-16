@@ -168,7 +168,7 @@ let htmlescape s =
 	s
 
 let reserved_flags = [
-	"cross";"flash8";"js";"neko";"flash";"php";"cpp";"cs";"java";"python";
+	"cross";"flash8";"js";"neko";"flash";"php";"cpp";"cs";"java";"python";"lua";
 	"as3";"swc";"macro";"sys"
 	]
 
@@ -965,7 +965,7 @@ and do_connect host port args =
 
 and init ctx =
 	let usage = Printf.sprintf
-		"Haxe Compiler %s %s- (C)2005-2014 Haxe Foundation\n Usage : haxe%s -main <class> [-swf|-js|-neko|-php|-cpp|-as3] <output> [options]\n Options :"
+		"Haxe Compiler %s %s- (C)2005-2014 Haxe Foundation\n Usage : haxe%s -main <class> [-swf|-js|-neko|-php|-cpp|-as3|-python|-lua] <output> [options]\n Options :"
 		s_version (match Version.version_extra with None -> "" | Some v -> v) (if Sys.os_type = "Win32" then ".exe" else "")
 	in
 	let com = ctx.com in
@@ -1063,6 +1063,7 @@ try
 		("-python",Arg.String (fun dir ->
 			set_platform Python dir;
 		),"<file> : generate Python code as target file");
+		("-lua",Arg.String (set_platform Lua),"<file> : compile code to Lua file");
 		("-xml",Arg.String (fun file ->
 			Parser.use_doc := true;
 			xml_out := Some file
@@ -1457,6 +1458,9 @@ try
 		| Python ->
 			add_std "python";
 			"python"
+		| Lua ->
+			add_std "lua";
+			"lua"
 	) in
 	(* if we are at the last compilation step, allow all packages accesses - in case of macros or opening another project file *)
 	begin match com.display with
@@ -1563,6 +1567,9 @@ try
 		| Python ->
 			Common.log com ("Generating python in : " ^ com.file);
 			Genpy.generate com;
+		| Lua ->
+			Common.log com ("Generating lua : " ^ com.file);
+			Genlua.generate com
 		);
 	end;
 	Sys.catch_break false;

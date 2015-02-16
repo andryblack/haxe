@@ -58,6 +58,7 @@ type platform =
 	| Cs
 	| Java
 	| Python
+	| Lua
 
 (**
 	The capture policy tells which handling we make of captured locals
@@ -674,6 +675,20 @@ let get_config com =
 			pf_pattern_matching = false;
 			pf_can_skip_non_nullable_argument = true;
 		}
+	| Lua ->
+		{
+			pf_static = false;
+			pf_sys = false;
+			pf_locals_scope = false;
+			pf_captured_scope = false;
+			pf_unique_locals = false;
+			pf_capture_policy = CPLoopVars;
+			pf_pad_nulls = false;
+			pf_add_final_return = false;
+			pf_overload = false;
+			pf_pattern_matching = false;
+			pf_can_skip_non_nullable_argument = true;
+		}
 
 let memory_marker = [|Unix.time()|]
 
@@ -778,6 +793,7 @@ let platforms = [
 	Cs;
 	Java;
 	Python;
+	Lua;
 ]
 
 let platform_name = function
@@ -791,6 +807,7 @@ let platform_name = function
 	| Cs -> "cs"
 	| Java -> "java"
 	| Python -> "python"
+	| Lua -> "lua"
 
 let flash_versions = List.map (fun v ->
 	let maj = int_of_float v in
