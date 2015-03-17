@@ -26,8 +26,11 @@ type pos = {
 	pmax : int;
 }
 
+module IntMap = Map.Make(struct type t = int let compare a b = a - b end)
+
 module Meta = struct
 	type strict_meta =
+		| Abi
 		| Abstract
 		| Access
 		| Accessor
@@ -50,6 +53,7 @@ module Meta = struct
 		| CoreApi
 		| CoreType
 		| CppFileCode
+		| CppInclude
 		| CppNamespaceCode
 		| CsNative
 		| Dce
@@ -59,6 +63,7 @@ module Meta = struct
 		| Delegate
 		| Depend
 		| Deprecated
+		| DirectlyUsed
 		| DynamicObject
 		| Enum
 		| EnumConstructorParam
@@ -84,11 +89,13 @@ module Meta = struct
 		| HaxeGeneric
 		| HeaderClassCode
 		| HeaderCode
+		| HeaderInclude
 		| HeaderNamespaceCode
 		| HxGen
 		| IfFeature
 		| Impl
 		| PythonImport
+		| ImplicitCast
 		| Include
 		| InitPackage
 		| Internal
@@ -99,6 +106,7 @@ module Meta = struct
 		| Keep
 		| KeepInit
 		| KeepSub
+		| LibType
 		| Meta
 		| Macro
 		| MaybeUsed
@@ -108,6 +116,7 @@ module Meta = struct
 		| NativeChildren
 		| NativeGen
 		| NativeGeneric
+		| NativeProperty
 		| NoCompletion
 		| NoDebug
 		| NoDoc
@@ -126,8 +135,8 @@ module Meta = struct
 		| Protected
 		| Public
 		| PublicFields
+		| QuotedField
 		| ReadOnly
-		| ReallyUsed
 		| RealPath
 		| Remove
 		| Require
@@ -142,6 +151,9 @@ module Meta = struct
 		| SkipCtor
 		| SkipReflection
 		| Sound
+		| SourceFile
+		| StoredTypedExpr
+		| Strict
 		| Struct
 		| StructAccess
 		| SuppressWarnings
@@ -434,6 +446,8 @@ type type_def =
 type type_decl = type_def * pos
 
 type package = string list * type_decl list
+
+exception Error of string * pos
 
 let is_lower_ident i =
 	let rec loop p =
@@ -748,3 +762,9 @@ let get_value_meta meta =
 		end
 	with Not_found ->
 		PMap.empty
+
+let rec string_list_of_expr_path_raise (e,p) =
+	match e with
+	| EConst (Ident i) -> [i]
+	| EField (e,f) -> f :: string_list_of_expr_path_raise e
+	| _ -> raise Exit

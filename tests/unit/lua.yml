@@ -1,0 +1,875 @@
+Test.hx:248: Generated at: 2015-03-17 14:13:53
+Test.hx:250: START
+TestOps.hx:9: 3 should be 12
+TestOps.hx:58: 98.5 should be -1.5
+TestOps.hx:71: 98.5 should be -1.5
+TestBasetypes.hx:319: 7 should be 52
+TestBasetypes.hx:241: false should be true
+TestBasetypes.hx:242: false should be true
+TestBasetypes.hx:344: { 0: Abstract casting ::t:: } should be Abstract casting works!
+TestBasetypes.hx:349: { 0: Abstract casting ::t:: } should be Abstract casting really works!
+TestBasetypes.hx:356: { 0: Abstract casting ::t:: } should be Abstract casting works!
+TestBasetypes.hx:362: { 0: Abstract casting ::t:: } should be Abstract casting really works!
+TestBasetypes.hx:367: { 0: Abstract casting ::t:: } should be Abstract casting works!
+TestBasetypes.hx:374: { 0: Abstract casting ::t:: } should be Abstract casting really works!
+TestBasetypes.hx:383: { 0: Abstract casting ::t:: } should be Abstract casting works!
+TestBasetypes.hx:391: { 0: Abstract casting ::t:: } should be Abstract casting works!
+TestBasetypes.hx:398: { 0: Abstract casting ::t:: } should be Abstract casting really works!
+TestBasetypes.hx:406: { 0: Abstract casting ::t:: } should be Abstract casting really works!
+TestBasetypes.hx:410: { 0: Abstract casting ::t:: } should be Abstract casting works!
+TestBasetypes.hx:411: { 0: foo } should be foo
+TestBasetypes.hx:415: { 0: Abstract casting ::t:: } should be Abstract casting really works!
+TestBasetypes.hx:273: false should be true
+TestBasetypes.hx:274: false should be true
+TestBasetypes.hx:102: 10 should be 55
+TestBasetypes.hx:103: 10 should be 55
+TestBasetypes.hx:104: 10.1 should be 55.1
+TestBasetypes.hx:107: 5 should be 41
+TestBasetypes.hx:108: 5 should be 11111
+TestBasetypes.hx:109: 5 should be 212
+TestBasetypes.hx:146: 32 should be 0
+TestBasetypes.hx:147: 32 should be 13
+TestBasetypes.hx:165: -2 should be -1
+TestIO.hx:24: 18 should be 12 (endian = false)
+TestIO.hx:61: 94 should be 86
+TestIO.hx:88: 121 should be 113
+Test.hx:228: ABORTED : bin/unit.lua:3062: attempt to perform arithmetic on a nil value in unit.TestIO.test
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestLocals.hx:45: { 0: <...> } should be A
+TestLocals.hx:54: bin/unit.lua:11501: hello should be hello
+TestEReg.hx:11: false should be true
+TestEReg.hx:12: matched should be aabca
+TestEReg.hx:13: matched should be b
+TestEReg.hx:14: matched should be c
+TestEReg.hx:15: matchedLeft should be xx
+TestEReg.hx:16: matchedRight should be yyy
+TestEReg.hx:17: 0 should be 2
+TestEReg.hx:18: 0 should be 5
+TestEReg.hx:20: false should be true
+TestEReg.hx:21: matched should be aaa
+TestEReg.hx:22: matchedLeft should be 
+TestEReg.hx:23: matchedRight should be 
+TestEReg.hx:24: false should be true
+TestEReg.hx:25: matched should be 
+TestEReg.hx:30: false should be true
+TestEReg.hx:31: matched should be 
+TestEReg.hx:32: false should be true
+TestEReg.hx:34: false should be true
+TestEReg.hx:36: false should be true
+TestEReg.hx:38: false should be true
+TestEReg.hx:40: false should be true
+TestEReg.hx:42: false should be true
+TestEReg.hx:44: false should be true
+TestEReg.hx:47: false should be true
+TestEReg.hx:51: false should be true
+TestEReg.hx:52: false should be true
+TestEReg.hx:54: aabbccaa should be xbbccaa
+TestEReg.hx:55: aabbccaa should be xbbccx
+TestEReg.hx:60: 0 should be 5
+TestEReg.hx:61: "" should be "","test",".blah","something:someval",""
+TestEReg.hx:64: aaabacx should be [aa]b[]cx
+TestEReg.hx:65: aaabacx should be [aa]bacx
+TestEReg.hx:67: aaabacx should be [b][]cx
+TestEReg.hx:68: aaabacx should be [bacx]b[cx]cx
+TestEReg.hx:72: aaabacxa should be []b[aaab]cx[aaabacx]
+TestEReg.hx:76: aaabacx should be []b[aaab]cx
+TestEReg.hx:77: aaabacx should be []b[aaab]cx
+TestEReg.hx:81: false should be true
+TestEReg.hx:82: matchedRight should be bab
+TestEReg.hx:83: false should be true
+TestEReg.hx:84: matchedRight should be b
+TestEReg.hx:85: matchedLeft should be ab
+TestEReg.hx:87: false should be true
+TestEReg.hx:88: matchedRight should be bab
+TestEReg.hx:89: false should be true
+TestEReg.hx:90: matchedRight should be b
+TestEReg.hx:91: matchedLeft should be ab
+TestEReg.hx:96: false should be true
+TestEReg.hx:97: matchedLeft should be bb
+TestEReg.hx:98: matchedRight should be a
+TestEReg.hx:100: aaabacx should be []a[]a[]a[]b[]a[]c[x]
+TestEReg.hx:104: 
+ should be ([][][
+])b
+
+TestEReg.hx:105: a should be a([a][][])b
+TestEReg.hx:106: aa
+a should be aa([aa][][
+a])b
+a([aa
+a][][])b
+TestEReg.hx:110: 
+ should be ([][][
+])b
+
+TestEReg.hx:111: a should be ([][][a])ba
+TestEReg.hx:112: aa
+a should be ([][][aa
+a])baa
+([aa
+][][a])ba
+TestEReg.hx:115: 
+ should be ([][][
+])b
+
+TestEReg.hx:116: a should be a([a][][])b
+TestEReg.hx:117: aa
+a should be aa([aa][][
+a])b
+a
+TestEReg.hx:121: 
+ should be ([][][
+])b
+
+TestEReg.hx:122: a should be ([][][a])ba
+TestEReg.hx:123: aa
+a should be ([][][aa
+a])baa
+a
+TestEReg.hx:126: No exception occured
+Test.hx:228: ABORTED : bin/unit.lua:13506: attempt to perform arithmetic on a nil value in unit.TestMisc.testIncr
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestMisc.hx:532: 16 should be 511
+TestMisc.hx:318: %c3%a9 should be %C3%A9
+TestMisc.hx:224: d0dbec7868fc74010c8862aaf60cda21 should be d41d8cd98f00b204e9800998ecf8427e
+TestMisc.hx:313: ice3MGBIr6ZT should be iceFr6NLtM
+TestMisc.hx:314: Héllow should be HÃ©llow
+TestMisc.hx:211: d0dbec7868fc74010c8862aaf60cda21 should be d41d8cd98f00b204e9800998ecf8427e
+TestMisc.hx:196: d0dbec7868fc74010c8862aaf60cda21 should be d41d8cd98f00b204e9800998ecf8427e
+Test.hx:228: ABORTED : bin/unit.lua:13230: calling 'getDay' on bad self (string expected, got table) in unit.TestMisc.testDate
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestMisc.hx:293: d0dbec7868fc74010c8862aaf60cda21 should be d41d8cd98f00b204e9800998ecf8427e
+TestMisc.hx:294: eb117901173e41b630b83a5ff133b2d6 should be 5d41402abc4b2a76b9719d911017c592
+TestMisc.hx:296: 1b297f77947e742994304060c5dab7d7 not in [1a722f7e6c801d9e470a10cb91ba406d,be50e8478cf24ff3595bc7307fb91b50]
+TestMisc.hx:298: 68c383c2a96c6c6f should be 68c3a96c6c6f
+TestMisc.hx:299: 27d5b5652187b2d52ac79c85fa05a30e should be be50e8478cf24ff3595bc7307fb91b50
+TestMisc.hx:160: false should be true
+TestMisc.hx:568: bin/unit.lua:13619: never call me should be never call me
+TestMisc.hx:572: bin/unit.lua:13633: never call me should be never call me
+TestMisc.hx:303: 63653faa0a61a5af78e1a18a09fec1960000000b should be da39a3ee5e6b4b0d3255bfef95601890afd80709
+TestMisc.hx:304: 78ef48082a500ff800000001000000050000000d should be aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
+TestMisc.hx:306: 000000060000000073508dc3612745aa0000000e not in [028db752c14604d624e8b1c121d600c427b8a3ba,35b5ea45c5e41f78b46a937cc74d41dfea920890]
+TestMisc.hx:308: efb3c0711bf6ba9bebcb2f371a420b5bafb81566 should be 35b5ea45c5e41f78b46a937cc74d41dfea920890
+Test.hx:228: ABORTED : bin/unit.lua:13380: attempt to perform arithmetic on local 'x' (a table value) in unit.TestMisc.testDynamicClosure
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Test.hx:228: ABORTED : bin/unit.lua:5141: bad argument #1 to 'char' (number expected, got nil) in unit.TestJson.testHaxeJson
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Test.hx:228: ABORTED : bin/unit.lua:5141: bad argument #1 to 'char' (number expected, got nil) in unit.TestJson.test3690
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Test.hx:228: ABORTED : bin/unit.lua:5141: bad argument #1 to 'char' (number expected, got nil) in unit.TestJson.testNativeJson
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Test.hx:228: ABORTED : bin/unit.lua:1670: attempt to compare number with nil in unit.TestResource.testResources
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Test.hx:228: ABORTED : bin/unit.lua:1502: stack overflow in unit.TestInt64.test
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestInt64.hx:106: 3 should be 4294967299
+TestInt64.hx:113: -3221225464 should be 1
+TestInt64.hx:43: -2976906495 should be 572248275467371265
+TestInt64.hx:49: 4744632644 should be -6489849317865727676
+TestInt64.hx:54: -2976906495 should be 5613028097
+TestInt64.hx:61: 1.566623292028e+16 should be 0
+TestInt64.hx:83: 18 should be 12816
+TestInt64.hx:84: -1235943418 should be -81985529216434177
+TestInt64.hx:85: -1985229329 should be 81985529216486895
+TestInt64.hx:86: 18 should be 12816
+TestInt64.hx:87: -1235943418 should be -81985529216434177
+TestInt64.hx:88: -1235956234 should be -81985529216446993
+TestInt64.hx:90: -3221225466 should be -81985522611781633
+TestInt64.hx:91: -5206454794 should be -81985524597010961
+TestInt64.hx:94: 5 should be 14
+Test.hx:228: ABORTED : bin/unit.lua:8: attempt to concatenate a table value in unit.TestReflect.testTypeof (typeof(false) = TBool)
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestReflect.hx:209: 65.3 should be 65
+Test.hx:228: ABORTED : bin/unit.lua:13783: attempt to index local 'self' (a nil value) in unit.TestReflect.testGetProp
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestReflect.hx:119: true should be false (1.2 is Int)
+TestReflect.hx:120: true should be false (10000000000 is Int)
+TestReflect.hx:121: true should be false (-10000000000 is Int)
+TestReflect.hx:122: true should be false (nan is Int)
+TestReflect.hx:123: true should be false (inf is Int)
+TestReflect.hx:124: true should be false (-inf is Int)
+TestReflect.hx:127: false should be true (Hello is null)
+TestReflect.hx:127: false should be true (Hello is Bool)
+TestReflect.hx:127: false should be true (Hello is Class)
+TestReflect.hx:127: false should be true (Hello is Dynamic)
+TestReflect.hx:127: false should be true
+TestReflect.hx:128: false should be true (123 is null)
+TestReflect.hx:128: false should be true (123 is Bool)
+TestReflect.hx:128: false should be true (123 is Class)
+TestReflect.hx:128: false should be true (123 is Dynamic)
+TestReflect.hx:128: false should be true
+TestReflect.hx:129: false should be true (false is null)
+TestReflect.hx:129: false should be true (false is Bool)
+TestReflect.hx:129: false should be true (false is Class)
+TestReflect.hx:129: false should be true (false is Dynamic)
+TestReflect.hx:129: false should be true
+TestReflect.hx:130: false should be true ( is null)
+TestReflect.hx:130: false should be true ( is Bool)
+TestReflect.hx:130: false should be true ( is Class)
+TestReflect.hx:130: false should be true ( is Dynamic)
+TestReflect.hx:130: false should be true
+TestReflect.hx:131: false should be true ([] is null)
+TestReflect.hx:131: false should be true ([] is Bool)
+TestReflect.hx:131: false should be true ([] is Class)
+TestReflect.hx:131: false should be true ([] is Dynamic)
+TestReflect.hx:131: false should be true
+TestReflect.hx:132: false should be true ({} is null)
+TestReflect.hx:132: false should be true ({} is Bool)
+TestReflect.hx:132: false should be true ({} is Class)
+TestReflect.hx:132: false should be true ({} is Dynamic)
+TestReflect.hx:132: false should be true
+TestReflect.hx:133: false should be true ({  } is null)
+TestReflect.hx:133: false should be true ({  } is Bool)
+TestReflect.hx:133: false should be true ({  } is Class)
+TestReflect.hx:133: false should be true ({  } is Dynamic)
+TestReflect.hx:133: false should be true
+TestReflect.hx:134: false should be true ({ intValue: 55, val: 0 } is null)
+TestReflect.hx:134: false should be true ({ intValue: 55, val: 0 } is Bool)
+TestReflect.hx:134: false should be true ({ intValue: 55, val: 0 } is Class)
+TestReflect.hx:134: false should be true ({ intValue: 55, val: 0 } is Dynamic)
+TestReflect.hx:134: false should be true
+TestReflect.hx:135: false should be true ({ intValue: 55, val: 0 } is null)
+TestReflect.hx:135: false should be true ({ intValue: 55, val: 0 } is Bool)
+TestReflect.hx:135: false should be true ({ intValue: 55, val: 0 } is Class)
+TestReflect.hx:135: false should be true ({ intValue: 55, val: 0 } is Dynamic)
+TestReflect.hx:135: false should be true
+TestReflect.hx:136: false should be true (A is null)
+TestReflect.hx:136: false should be true (A is Bool)
+TestReflect.hx:136: false should be true (A is unit.MyEnum)
+TestReflect.hx:136: false should be true (A is Class)
+TestReflect.hx:136: true should be false (A is Enum)
+TestReflect.hx:136: false should be true (A is Dynamic)
+TestReflect.hx:136: false should be true
+TestReflect.hx:137: false should be true (C(0,) is null)
+TestReflect.hx:137: false should be true (C(0,) is Bool)
+TestReflect.hx:137: false should be true (C(0,) is unit.MyEnum)
+TestReflect.hx:137: false should be true (C(0,) is Class)
+TestReflect.hx:137: true should be false (C(0,) is Enum)
+TestReflect.hx:137: false should be true (C(0,) is Dynamic)
+TestReflect.hx:137: false should be true
+TestReflect.hx:138: false should be true ({ d: <...>, buf: 1426590836 } is null)
+TestReflect.hx:138: false should be true ({ d: <...>, buf: 1426590836 } is Bool)
+TestReflect.hx:138: false should be true ({ d: <...>, buf: 1426590836 } is Class)
+TestReflect.hx:138: false should be true ({ d: <...>, buf: 1426590836 } is Dynamic)
+TestReflect.hx:138: false should be true
+TestReflect.hx:142: false should be true ({ B: <...>, __empty_constructs__: <...>, new: <function>, D: <function>, C: <function>, A: <...>, __constructs__: [A,B,C,D] } is Enum)
+TestReflect.hx:240: false should be true
+TestReflect.hx:229: { 0: <...>, 1: hello } should be 55
+TestReflect.hx:229: null should be hello
+TestReflect.hx:106: null should be Int (type Int)
+TestReflect.hx:107: null should be {  }
+TestReflect.hx:99: true should be false (type Bool)
+Test.hx:228: ABORTED : bin/unit.lua:1092: attempt to index local 'e' (a nil value) in unit.TestReflect.testTypes
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Test.hx:228: ABORTED : bin/unit.lua:2591: attempt to compare number with nil in unit.TestSerialize.test
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestMeta.hx:25:  should be enumMeta
+TestMeta.hx:34:  should be a
+TestMeta.hx:41:  should be new
+TestMeta.hx:45: _int#complex should be _int#complex#empty
+TestMeta.hx:49: b#x#y#z should be b#k#x#y#z
+Test.hx:228: ABORTED : bin/unit.lua:9801: attempt to concatenate a table value in unit.TestType.testGenericFunction
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestType.hx:115: true should be false
+TestType.hx:117: false should be true
+TestType.hx:120: false should be true
+TestType.hx:121: true should be false
+Test.hx:228: ABORTED : bin/unit.lua:9272: stack overflow in unit.TestType.testSuperPropAccess
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestType.hx:71: 7 should be 0
+Test.hx:228: ABORTED : bin/unit.lua:17950: attempt to call method 'join' (a nil value) in unit.TestType.testAllField
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestType.hx:77: 8 should be 1
+TestType.hx:78: set|XXX|__class__|__index|super|new|add|get should be XXX
+TestType.hx:79: set should be XXX
+TestType.hx:84: __index|add|get|new|set|super should be add|get|intValue|ref|set|stringValue|val
+TestType.hx:87: XXX|__index|add|get|new|set|super should be add|get|intValue|ref|set|stringValue|val
+TestType.hx:96: __index|get_SX|get_SY|get_x|get_y|new|set_SX|set_SY|set_x|set_y|set_z|super should be get_x|get_y|set_x|set_y|set_z|y|z
+TestType.hx:102: __class__|__index|get_SX|get_SY|get_x|get_y|new|set_SX|set_SY|set_x|set_y|set_z|super should be SY|get_SX|get_SY|set_SX|set_SY
+TestGADT.hx:32: null should be 20
+TestGADT.hx:37: null should be false
+TestGADT.hx:42: null should be true
+TestMatch.hx:471: 1 should be null
+TestMatch.hx:472: 1 should be null
+Test.hx:228: ABORTED : bin/unit.lua:12565: attempt to index a nil value in unit.TestMatch.testExtractors
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestMatch.hx:423: 2 should be 1
+TestMatch.hx:431: { 0: foo } should be foo
+TestMatch.hx:321: null should be not null
+TestMatch.hx:293: 11 should be null
+TestMatch.hx:294: 12 should be null
+TestMatch.hx:295: 13.9 should be null
+TestMatch.hx:296: 14.8 should be null
+TestMatch.hx:298: 21 should be null
+TestMatch.hx:299: 22 should be null
+TestMatch.hx:300: 23.9 should be null
+TestMatch.hx:301: 24.8 should be null
+TestMatch.hx:303: 3.91 should be null
+TestMatch.hx:304: 3.92 should be null
+TestMatch.hx:305: 3.93.9 should be null
+TestMatch.hx:306: 3.94.8 should be null
+TestMatch.hx:308: 4.81 should be null
+TestMatch.hx:309: 4.82 should be null
+TestMatch.hx:310: 4.83.9 should be null
+TestMatch.hx:311: 4.84.8 should be null
+Test.hx:228: ABORTED : bin/unit.lua:12027: attempt to compare number with table in unit.TestMatch.testGadt
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestMatch.hx:142: bar should be not_found
+Test.hx:228: ABORTED : bin/unit.lua:11723: attempt to index field 'expr' (a nil value) in unit.TestMatch.testBasic
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestMatch.hx:247: 0 should be null
+TestMatch.hx:247: 0 should be null
+TestMatch.hx:247: 1 should be null
+TestMatch.hx:247: 3 should be null
+Test.hx:228: ABORTED : bin/unit.lua:8230: Expected " in unit.TestSpecification.testRtti_unit_hx
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Hmac.unit.hx:5: 42a292b2b00894dfdfcdff5f5bd27f5b should be 74e6f7298a9c2d168935f58c001bad88
+Hmac.unit.hx:6: 90b8df906639d315022476a905e4cf150e4717fa should be fbdb1d1b18aa6c08324b7d64b71fb76370690e1d
+Hmac.unit.hx:7: ccfd4b3d191429aa48762b4c9ffdfaf20ca9fb9569865f39e5b282a78d9d679d should be b613679a0814d9ec772f95d778c35fc5ff1697c493715653c6c712144292c5ad
+Hmac.unit.hx:9: a044117cb7886e2e42ffca0997056a64 should be 80070713463e7749b90c2dc24911e275
+Hmac.unit.hx:10: 328f12c1918ca8fc18dda65354086da1a1ad713a should be de7c9b85b8b78aa6bc8a7a36f70a90701c9db4d9
+Hmac.unit.hx:11: 14c45071b906c1e2bb1be1c58a41fdc71e62e7912670b0b316b08e840eaf2c3b should be f7bc83f430538424b13298e6aa6fb143ef4d59a14946175997479dbc2d1a3cd8
+Reflect.unit.hx:5: false should be true
+Test.hx:228: ABORTED : bin/unit.lua:14418: attempt to index upvalue 'v' (a nil value) in unit.TestSpecification.testReflect_unit_hx
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Md5.unit.hx:1: d0dbec7868fc74010c8862aaf60cda21 should be d41d8cd98f00b204e9800998ecf8427e
+Md5.unit.hx:2: 3db2c5b822e845fb78693da48ce4b41b should be 9e107d9d372bb6826bd81d3542a419d6
+Test.hx:228: ABORTED : bin/unit.lua:6521: attempt to compare number with nil in unit.TestSpecification.testExprTools_unit_hx
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Sha224.unit.hx:1: 3f4c46b70000000762452ab03ef031480000000001bf36fb5c4ea25c should be d14a028c2a3a2bc9476102bb288234c415a2b01f828ea62ac5b3e42f
+Sha224.unit.hx:2: 29b0debd0000000352aeae8b0000000c0cb05a2b000000010000000f should be 23097d223405d8228642a477bda255b32aadbce4bda0b3f7e36c9da7
+Sha224.unit.hx:3: 04a452955915a7360000000f6d8c14611c4ee3cd0000000f0000000b should be 730e109bd7a8a32b1cb9d9a09aa2325d2430587ddbc0c38bad911525
+Sha224.unit.hx:4: 000000027dd625780000000a0000000a105487d5106679b50000000d should be 75388b16512776cc5dba5da1fd890150b0c6455cb4f58b1952522525
+Sha224.unit.hx:5: 65cbcb59000000030000000a0c2348cf2b6f9af95dea79576245ffa8 should be c97ca9a559850ce97a04a96def6d99a9e0e0e2ab14e6b8df265fc0b3
+Int32.unit.hx:7: 2147483648 should be -2147483648
+Int32.unit.hx:8: 2147483648 should be -2147483648
+Int32.unit.hx:10: 2147483648 should be -2147483648
+Int32.unit.hx:14: 2147483648 should be -2147483648
+Int32.unit.hx:16: 4294967295 should be -1
+Int32.unit.hx:17: -2147483649 should be 2147483647
+Int32.unit.hx:19: 4.6116860141324e+18 should be 1
+Int32.unit.hx:20: -4.6116860162799e+18 should be -2147483648
+Int32.unit.hx:21: 4294967294 should be -2
+Template.unit.hx:5: { 0: My name is <strong>::name::</strong> and I'm <em>::age::</em> years old. } should be My name is <strong>John</strong> and I'm <em>33</em> years old.
+Template.unit.hx:9: { 0: My name is <strong>::name::</strong> and I'm <em>::age::</em> years old. } should be My name is <strong>null</strong> and I'm <em>null</em> years old.
+Template.unit.hx:14: { 0: My name is <strong>::name::</strong> and I'm <em>::age::</em> years old. } should be My name is <strong>John</strong> and I'm <em>33</em> years old.
+Template.unit.hx:22: { 0: Call macro : $$myfun(Hello,::param::) } should be Call macro : [Hello=110]
+Template.unit.hx:31: { 0: $$b(a,$$a(b)) } should be _a:#b
+Template.unit.hx:35: { 0: $$a($$b(::a::,b)) } should be #_abc:b
+EReg.unit.hx:7: false should be true
+EReg.unit.hx:8: matched should be a
+EReg.unit.hx:9: matchedLeft should be 
+EReg.unit.hx:10: matchedRight should be 
+EReg.unit.hx:13: 0 should be 1
+EReg.unit.hx:15: false should be true
+EReg.unit.hx:16: matched should be a
+EReg.unit.hx:17: matchedLeft should be 
+EReg.unit.hx:18: matchedRight should be a
+EReg.unit.hx:21: 0 should be 1
+EReg.unit.hx:23: false should be true
+EReg.unit.hx:24: matched should be a
+EReg.unit.hx:25: matchedLeft should be 
+EReg.unit.hx:26: matchedRight should be a
+EReg.unit.hx:29: 0 should be 1
+EReg.unit.hx:31: false should be true
+EReg.unit.hx:32: matched should be aa
+EReg.unit.hx:33: matchedLeft should be 
+EReg.unit.hx:34: matchedRight should be 
+EReg.unit.hx:37: 0 should be 2
+EReg.unit.hx:39: false should be true
+EReg.unit.hx:40: matched should be aa
+EReg.unit.hx:41: matchedLeft should be A
+EReg.unit.hx:42: matchedRight should be BaaC
+EReg.unit.hx:44: 0 should be 1
+EReg.unit.hx:45: 0 should be 2
+EReg.unit.hx:48: null should be 
+EReg.unit.hx:49: null should be 
+EReg.unit.hx:49: null should be 
+EReg.unit.hx:50: null should be 
+EReg.unit.hx:50: null should be a
+EReg.unit.hx:51: null should be b
+EReg.unit.hx:52: null should be 
+EReg.unit.hx:52: null should be b
+EReg.unit.hx:53: null should be b
+EReg.unit.hx:53: null should be 
+EReg.unit.hx:54: null should be 
+EReg.unit.hx:54: null should be ba
+EReg.unit.hx:55: null should be b
+EReg.unit.hx:55: null should be b
+EReg.unit.hx:56: null should be b
+EReg.unit.hx:56: null should be ba
+EReg.unit.hx:59: null should be 
+EReg.unit.hx:60: null should be 
+EReg.unit.hx:60: null should be 
+EReg.unit.hx:61: null should be 
+EReg.unit.hx:61: null should be 
+EReg.unit.hx:61: null should be 
+EReg.unit.hx:62: null should be b
+EReg.unit.hx:63: null should be 
+EReg.unit.hx:63: null should be b
+EReg.unit.hx:64: null should be b
+EReg.unit.hx:64: null should be 
+EReg.unit.hx:65: null should be 
+EReg.unit.hx:65: null should be b
+EReg.unit.hx:65: null should be 
+EReg.unit.hx:66: null should be b
+EReg.unit.hx:66: null should be b
+EReg.unit.hx:67: null should be b
+EReg.unit.hx:67: null should be b
+EReg.unit.hx:67: null should be 
+EReg.unit.hx:71: a should be z
+EReg.unit.hx:72: aa should be za
+EReg.unit.hx:74: ab should be zb
+EReg.unit.hx:75: ba should be bz
+EReg.unit.hx:76: aba should be zba
+EReg.unit.hx:77: bab should be bzb
+EReg.unit.hx:78: baba should be bzba
+EReg.unit.hx:82: a should be z
+EReg.unit.hx:83: aa should be zz
+EReg.unit.hx:85: ab should be zb
+EReg.unit.hx:86: ba should be bz
+EReg.unit.hx:87: aba should be zbz
+EReg.unit.hx:88: bab should be bzb
+EReg.unit.hx:89: baba should be bzbz
+EReg.unit.hx:92: lead href="foo" trail should be lead foo trail
+EReg.unit.hx:94: href="foo" should be foo
+EReg.unit.hx:96: lead href="foo" href="bar" trail should be lead foo bar trail
+EReg.unit.hx:97: lead href="foo" href="bar" trail should be lead $foo$ $bar$ trail
+EReg.unit.hx:101: Hello World should be Hallo World
+EReg.unit.hx:102: Hello should be Hallo
+EReg.unit.hx:103: Hello World should be Hello Hallo
+Test.hx:228: ABORTED : bin/unit.lua:15056: calling 'getDay' on bad self (string expected, got table) in unit.TestSpecification.testDate_unit_hx
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Test.hx:228: ABORTED : bin/unit.lua:9801: attempt to concatenate a table value in unit.TestSpecification.testString_unit_hx
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+DateTools.unit.hx:8: 2012-2-17 17:25:23 should be 2012-02-17 01:03:02
+Path.unit.hx:35:  should be null
+Path.unit.hx:36: null should be .
+Path.unit.hx:79: C:/Users/Waneck on Windows///.haxelib should be C:/Users/Waneck on Windows/.haxelib
+Test.hx:228: ABORTED : bin/unit.lua:9801: attempt to concatenate a table value in unit.TestSpecification.testType_unit_hx
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+StringTools.unit.hx:9: <lt;foo>gt; &amp; <lt;bar>gt; = 'invalid"' should be <foo> & <bar> = 'invalid"'
+StringTools.unit.hx:10: <lt;foo>gt; &amp; <lt;bar>gt; = '#039;invalid"quot;'#039; should be <foo> & <bar> = 'invalid"'
+Test.hx:228: ABORTED : bin/unit.lua:989: attempt to compare number with nil in unit.TestSpecification.testStringTools_unit_hx
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Sha1.unit.hx:1: 63653faa0a61a5af78e1a18a09fec1960000000b should be da39a3ee5e6b4b0d3255bfef95601890afd80709
+Sha1.unit.hx:2: 0000000e398400eb00000004000000060000000d should be 2fd4e1c67a2d28fced849ee1bb76e7391b93eb12
+Utf8.unit.hx:24: 8 should be 3
+Utf8.unit.hx:25: 227 should be 12354
+Utf8.unit.hx:26: 129 should be 233
+Utf8.unit.hx:27: 130 should be 12356
+Test.hx:228: ABORTED : bin/unit.lua:16688: bad argument #1 to 'char' (invalid value) in unit.TestSpecification.testUtf8_unit_hx
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+BalancedTree.unit.hx:39: true should be null
+BalancedTree.unit.hx:39: true should be null
+BalancedTree.unit.hx:39: true should be null
+BalancedTree.unit.hx:39: true should be null
+BalancedTree.unit.hx:39: true should be null
+BalancedTree.unit.hx:39: true should be null
+BalancedTree.unit.hx:39: true should be null
+BalancedTree.unit.hx:39: true should be null
+BalancedTree.unit.hx:39: true should be null
+BalancedTree.unit.hx:39: true should be null
+BalancedTree.unit.hx:62: null should be true
+BalancedTree.unit.hx:62: null should be true
+BalancedTree.unit.hx:62: null should be true
+BalancedTree.unit.hx:62: null should be true
+BalancedTree.unit.hx:62: null should be true
+BalancedTree.unit.hx:62: null should be true
+BalancedTree.unit.hx:62: null should be true
+BalancedTree.unit.hx:62: null should be true
+BalancedTree.unit.hx:62: null should be true
+BalancedTree.unit.hx:62: null should be true
+Lambda.unit.hx:56: false should be true
+Lambda.unit.hx:103: true should be false
+Test.hx:228: ABORTED : bin/unit.lua:4460: attempt to call field 'slice' (a nil value) in unit.TestSpecification.testEnumValueMap_unit_hx
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Sha256.unit.hx:1: 5ac8e4cb0000000b0000000b47551f7c70ae4bb6000000050000000d00000006 should be e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+Sha256.unit.hx:2: 1235675e512a735e570d41dd1f477cbf4295d8be311925910000000862960433 should be d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592
+Std.unit.hx:13: true should be false
+Std.unit.hx:60: null should be 100
+Std.unit.hx:61: null should be 12
+Test.hx:228: ABORTED : bin/unit.lua:9820: attempt to perform arithmetic on local 'v' (a nil value) in unit.TestSpecification.testStd_unit_hx
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Array.unit.hx:11: null should be 1
+Array.unit.hx:21: table: 0x00cbd650_table: 0x00cbd678_table: 0x00cbd6a0 should be ClassWithToString.toString()_ClassWithToString.toString()_ClassWithToStringChild2.toString()
+Array.unit.hx:44: 0 should be 1
+Array.unit.hx:47: 1 should be 2
+Array.unit.hx:50: 2 should be 3
+Array.unit.hx:93: null should be { i: 5 }
+Array.unit.hx:95: null should be { i: 1 }
+Array.unit.hx:95: { i: 1 } should be { i: 1 }
+Array.unit.hx:95: { i: 1 } should be { i: 9 }
+Array.unit.hx:95: { i: 9 } should be { i: 1 }
+Array.unit.hx:95: null should be { i: 5 }
+Array.unit.hx:97: null should be { i: 1 }
+Array.unit.hx:97: { i: 1 } should be { i: 9 }
+Array.unit.hx:99: null should be { i: 9 }
+Array.unit.hx:101: null should be { i: 9 }
+Array.unit.hx:102: null should be { i: 9 }
+Array.unit.hx:163: null should be 1
+Array.unit.hx:169: null should be 1
+Array.unit.hx:169: 1 should be 2
+Array.unit.hx:169: 2 should be 4
+Array.unit.hx:171: 4 should be 1
+Array.unit.hx:171: null should be 2
+Array.unit.hx:171: 1 should be 8
+Array.unit.hx:171: 2 should be 4
+Array.unit.hx:173: null should be 9
+Array.unit.hx:173: 4 should be 1
+Array.unit.hx:173: null should be 2
+Array.unit.hx:173: 1 should be 8
+Array.unit.hx:173: 2 should be 4
+Array.unit.hx:194: false should be true
+Array.unit.hx:196: false should be true
+Array.unit.hx:221: -1 should be 0
+Array.unit.hx:231: -1 should be 2
+Array.unit.hx:232: -1 should be 2
+Array.unit.hx:233: -1 should be 1
+Test.hx:228: ABORTED : bin/unit.lua:238: attempt to index local '_g1' (a function value) in unit.TestSpecification.testArray_unit_hx
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+EvaluationOrder.unit.hx:66: 1_2_4_3 should be 1_2_3_4
+EvaluationOrder.unit.hx:74: 1_2_3_4_6_5 should be 1_2_3_4_5_6
+EvaluationOrder.unit.hx:92: 1_2_4_3 should be 1_2_3_4
+EvaluationOrder.unit.hx:104: 1_2_3_4_6_5 should be 1_2_3_4_5_6
+TestDCE.hx:97: unit.UsedInterface should have member field usedInterfaceFunc
+TestDCE.hx:114: unit.PropertyInterface should have member field set_x
+Test.hx:228: ABORTED : bin/unit.lua:10639: attempt to index local 'self' (a number value) in unit.TestDCE.testProperty2
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+TestDCE.hx:64: unit.DCEClass should have member field memberVarUsed
+TestDCE.hx:65: unit.DCEClass should have member field memberPropUsed
+Issue2254.hx:12: HI, IT IS  should be { 0: HI, IT IS ::if !isIt::NOT::end:: }
+Issue2254.hx:13: HI, IT IS NOT should be { 0: HI, IT IS ::if !isIt::NOT::end:: }
+Issue2580.hx:18: 0 should be null
+Issue2580.hx:19: 1 should be null
+Issue2580.hx:20: 2 should be null
+Issue2610.hx:18: 2 should be null
+Issue2610.hx:32: 2+2 should be null
+Issue2619.hx:19: foo should be bin/unit.lua:19998: foo
+Issue2619.hx:26: foo should be bin/unit.lua:20009: foo
+Issue2623.hx:20: null should be { B: <...>, __empty_constructs__: <...>, new: <function>, A: <function>, __constructs__: [A,B] }
+Issue2623.hx:21: null should be { B: <...>, __empty_constructs__: <...>, new: <function>, A: <function>, __constructs__: [A,B] }
+Issue2633.hx:12: 1 should be null
+Test.hx:228: ABORTED : bin/unit.lua:9801: attempt to concatenate a table value in unit.issues.Issue2634.test
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Issue2728.hx:19: { foo: 12 } should be { 0: <...> }
+Issue2778.hx:11: true should be { 0: true }
+Issue2778.hx:12: false should be { 0: true }
+Issue2778.hx:13: false should be { 0: false }
+Issue2778.hx:14: false should be { 0: false }
+Test.hx:228: ABORTED : bin/unit.lua:21433: attempt to perform arithmetic on local 'i1' (a table value) in unit.issues.Issue2778.test
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Test.hx:228: ABORTED : bin/unit.lua:231: bad argument #1 to 'pairs' (table expected, got function) in unit.issues.Issue2889.testDynamic
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Issue2907.hx:24: foo should be bin/unit.lua:22146: foo
+Test.hx:228: ABORTED : bin/unit.lua:794: attempt to call field 'pack' (a nil value) in unit.issues.Issue2937.test
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Issue2988.hx:16: foo should be 
+Issue3071.hx:13: 1,2 should be 
+Test.hx:228: ABORTED : bin/unit.lua:53: attempt to index local 'self' (a nil value) in unit.issues.Issue3071.test
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Issue3113.hx:8: { __name__: [unit,issues,_Issue3113,A], func: <function> } should be 1
+Issue3113.hx:11: { func: <function>, __class__: <...>, __name__: [unit,issues,_Issue3113,B], __super__: <...> } should be 1
+Issue3203.hx:10: null should be 1
+Issue3203.hx:11: null should be 2
+Test.hx:228: ABORTED : bin/unit.lua:6802: attempt to index field 'args' (a nil value) in unit.issues.Issue3205.test
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Issue3513.hx:22: 0 should be { 0: 0 }
+Issue3513.hx:23: 1 should be { 0: 1 }
+Test.hx:228: ABORTED : bin/unit.lua:8230: Expected " in unit.issues.Issue3725.testStaticFields
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Test.hx:228: ABORTED : bin/unit.lua:8230: Expected " in unit.issues.Issue3725.testStaticArgs
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Test.hx:228: ABORTED : bin/unit.lua:8230: Expected " in unit.issues.Issue3725.testMemberFields
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Test.hx:228: ABORTED : bin/unit.lua:8230: Expected " in unit.issues.Issue3725.testMemberArgs
+Test.hx:231: STACK :
+stack traceback:
+bin/unit.lua:9497: in function 'onError'
+bin/unit.lua:9781: in function <bin/unit.lua:9764>
+[builtin#20]: at 0x0100040fae
+bin/unit.lua:9764: in function <bin/unit.lua:9510>
+bin/unit.lua:27211: in main chunk
+[C]: at 0x0100001462
+Test.hx:188: DONE [3510 tests]
+Test.hx:357: SUCCESS: false

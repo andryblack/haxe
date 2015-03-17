@@ -8,7 +8,7 @@ open Typecore
 let rec verify_ast e = match e.eexpr with
 	| TField(_) ->
 		()
-	| TTypeExpr(TClassDecl {cl_kind = KAbstractImpl _}) ->
+	| TTypeExpr(TClassDecl {cl_kind = KAbstractImpl a}) when not (Meta.has Meta.RuntimeValue a.a_meta) ->
 		error "Cannot use abstract as value" e.epos
 	| _ ->
 		Type.iter verify_ast e
@@ -59,11 +59,11 @@ let promote_complex_rhs com e =
 				| [] -> e
 			end
 		| TSwitch(es,cases,edef) ->
-			{e with eexpr = TSwitch(es,List.map (fun (el,e) -> List.map find el,loop f e) cases,match edef with None -> None | Some e -> Some (loop f e)); etype = com.basic.tvoid}
+			{e with eexpr = TSwitch(es,List.map (fun (el,e) -> List.map find el,loop f e) cases,match edef with None -> None | Some e -> Some (loop f e)); }
 		| TIf(eif,ethen,eelse) ->
-			{e with eexpr = TIf(find eif, loop f ethen, match eelse with None -> None | Some e -> Some (loop f e)); etype = com.basic.tvoid}
+			{e with eexpr = TIf(find eif, loop f ethen, match eelse with None -> None | Some e -> Some (loop f e)); }
 		| TTry(e1,el) ->
-			{e with eexpr = TTry(loop f e1, List.map (fun (el,e) -> el,loop f e) el); etype = com.basic.tvoid}
+			{e with eexpr = TTry(loop f e1, List.map (fun (el,e) -> el,loop f e) el); }
 		| TParenthesis e1 when not (Common.defined com Define.As3) ->
 			{e with eexpr = TParenthesis(loop f e1)}
 		| TMeta(m,e1) ->
@@ -81,6 +81,7 @@ let promote_complex_rhs com e =
 			| TVar(v,eo) ->
 				begin match eo with
 					| Some e when is_complex e ->
+						let e = find e in
 						r := (loop (fun e -> mk (TBinop(OpAssign,mk (TLocal v) v.v_type e.epos,e)) v.v_type e.epos) e)
 							:: ((mk (TVar (v,None)) com.basic.tvoid e.epos))
 							:: !r
@@ -630,7 +631,7 @@ let rename_local_vars ctx e =
 			let old = save() in
 			(* we have to look ahead for vars on these targets (issue #3344) *)
 			begin match ctx.com.platform with
-				| Js | Flash8 ->
+				| Js ->
 					let rec check_var e = match e.eexpr with
 						| TVar (v,eo) ->
 							(match eo with None -> () | Some e -> loop e);
@@ -681,10 +682,10 @@ let rename_local_vars ctx e =
 	loop e;
 	e
 
-let check_unification com e t =
+let check_unification ctx e t =
 	begin match follow e.etype,follow t with
 		| TEnum _,TDynamic _ ->
-			add_feature com "may_print_enum";
+			Hashtbl.replace ctx.curclass.cl_module.m_extra.m_features "may_print_enum" true;
 		| _ ->
 			()
 	end;
@@ -702,24 +703,44 @@ let check_unification com e t =
 (* Saves a class state so it can be restored later, e.g. after DCE or native path rewrite *)
 let save_class_state ctx t = match t with
 	| TClassDecl c ->
-		let meta = c.cl_meta and path = c.cl_path and ext = c.cl_extern in
-		let fl = c.cl_fields and ofl = c.cl_ordered_fields and st = c.cl_statics and ost = c.cl_ordered_statics in
-		let cst = c.cl_constructor and over = c.cl_overrides in
-		let oflk = List.map (fun f -> f.cf_kind,f.cf_expr,f.cf_type) ofl in
-		let ostk = List.map (fun f -> f.cf_kind,f.cf_expr,f.cf_type) ost in
+		let mk_field_restore f =
+			let rec mk_overload_restore f =
+				f.cf_kind,f.cf_expr,f.cf_type,f.cf_meta,f.cf_params
+			in
+			( f,mk_overload_restore f, List.map (fun f -> f,mk_overload_restore f) f.cf_overloads )
+		in
+		let restore_field (f,res,overloads) =
+			let restore_field (f,(kind,expr,t,meta,params)) =
+				f.cf_kind <- kind; f.cf_expr <- expr; f.cf_type <- t; f.cf_meta <- meta; f.cf_params <- params;
+				f
+			in
+			let f = restore_field (f,res) in
+			f.cf_overloads <- List.map restore_field overloads;
+			f
+		in
+		let mk_pmap lst =
+			List.fold_left (fun pmap f -> PMap.add f.cf_name f pmap) PMap.empty lst
+		in
+
+		let meta = c.cl_meta and path = c.cl_path and ext = c.cl_extern and over = c.cl_overrides in
+		let sup = c.cl_super and impl = c.cl_implements in
+		let csr = Option.map (mk_field_restore) c.cl_constructor in
+		let ofr = List.map (mk_field_restore) c.cl_ordered_fields in
+		let osr = List.map (mk_field_restore) c.cl_ordered_statics in
+		let init = c.cl_init in
 		c.cl_restore <- (fun() ->
+			c.cl_super <- sup;
+			c.cl_implements <- impl;
 			c.cl_meta <- meta;
 			c.cl_extern <- ext;
 			c.cl_path <- path;
-			c.cl_fields <- fl;
-			c.cl_ordered_fields <- ofl;
-			c.cl_statics <- st;
-			c.cl_ordered_statics <- ost;
-			c.cl_constructor <- cst;
+			c.cl_init <- init;
+			c.cl_ordered_fields <- List.map restore_field ofr;
+			c.cl_ordered_statics <- List.map restore_field osr;
+			c.cl_fields <- mk_pmap c.cl_ordered_fields;
+			c.cl_statics <- mk_pmap c.cl_ordered_statics;
+			c.cl_constructor <- Option.map restore_field csr;
 			c.cl_overrides <- over;
-			(* DCE might modify the cf_kind, so let's restore it as well *)
-			List.iter2 (fun f (k,e,t) -> f.cf_kind <- k; f.cf_expr <- e; f.cf_type <- t;) ofl oflk;
-			List.iter2 (fun f (k,e,t) -> f.cf_kind <- k; f.cf_expr <- e; f.cf_type <- t;) ost ostk;
 		)
 	| _ ->
 		()
@@ -955,6 +976,32 @@ let check_void_field ctx t = match t with
 	| _ ->
 		()
 
+(* Interfaces have no 'super', but can extend many other interfaces.
+   This makes the first extended (implemented) interface the super for efficiency reasons (you can get one for 'free')
+   and leaves the remaining ones as 'implemented' *)
+let promote_first_interface_to_super ctx t = match t with
+	| TClassDecl c when c.cl_interface ->
+		begin match c.cl_implements with
+		| ({ cl_path = ["cpp";"rtti"],_ },_ ) :: _ -> ()
+		| first_interface  :: remaining ->
+			c.cl_super <- Some first_interface;
+			c.cl_implements <- remaining
+		| _ -> ()
+		end
+	| _ ->
+		()
+
+let commit_features ctx t =
+	let m = (t_infos t).mt_module in
+	Hashtbl.iter (fun k v ->
+		Common.add_feature ctx.com k;
+	) m.m_extra.m_features
+
+let check_reserved_type_paths ctx t =
+	let m = t_infos t in
+	if List.mem m.mt_path ctx.com.config.pf_reserved_type_paths then
+		ctx.com.warning ("Type path " ^ (s_type_path m.mt_path) ^ " is reserved on this target") m.mt_pos
+
 (* PASS 3 end *)
 
 let run_expression_filters ctx filters t =
@@ -1028,7 +1075,7 @@ let run com tctx main =
 	if use_static_analyzer then begin
 		(* PASS 1: general expression filters *)
 		let filters = [
-			Codegen.UnificationCallback.run (check_unification com);
+			Codegen.UnificationCallback.run (check_unification tctx);
 			Codegen.AbstractCast.handle_abstract_casts tctx;
 			Optimizer.inline_constructors tctx;
 			Optimizer.reduce_expression tctx;
@@ -1047,11 +1094,11 @@ let run com tctx main =
 	end else begin
 		(* PASS 1: general expression filters *)
 		let filters = [
-			Codegen.UnificationCallback.run (check_unification com);
+			Codegen.UnificationCallback.run (check_unification tctx);
 			Codegen.AbstractCast.handle_abstract_casts tctx;
 			blockify_ast;
 			( if (Common.defined com Define.NoSimplify) || (Common.defined com Define.Cppia) ||
-						( match com.platform with Cpp | Flash8 -> false | _ -> true ) then
+						( match com.platform with Cpp -> false | _ -> true ) then
 					fun e -> e
 				else
 					fun e ->
@@ -1083,7 +1130,7 @@ let run com tctx main =
 	(* check @:remove metadata before DCE so it is ignored there (issue #2923) *)
 	List.iter (check_remove_metadata tctx) com.types;
 	(* DCE *)
-	let dce_mode = if Common.defined com Define.As3 || Common.defined com Define.DocGen then
+	let dce_mode = if Common.defined com Define.As3 then
 		"no"
 	else
 		(try Common.defined_value com Define.Dce with _ -> "no")
@@ -1115,5 +1162,8 @@ let run com tctx main =
 		(match com.platform with | Java | Cs -> (fun _ _ -> ()) | _ -> add_field_inits);
 		add_meta_field;
 		check_void_field;
+		(match com.platform with | Cpp -> promote_first_interface_to_super | _ -> (fun _ _ -> ()) );
+		commit_features;
+		(if com.config.pf_reserved_type_paths <> [] then check_reserved_type_paths else (fun _ _ -> ()));
 	] in
 	List.iter (fun t -> List.iter (fun f -> f tctx t) type_filters) com.types
