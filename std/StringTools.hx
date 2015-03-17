@@ -36,7 +36,7 @@ class StringTools {
 	/**
 		Encode an URL by using the standard format.
 	**/
-	#if (!java && !cpp) inline #end public static function urlEncode( s : String ) : String {
+	#if (!java && !cpp && !lua) inline #end public static function urlEncode( s : String ) : String {
 		#if flash9
 			return untyped __global__["encodeURIComponent"](s);
 		#elseif flash
@@ -55,6 +55,18 @@ class StringTools {
 			return untyped cs.system.Uri.EscapeUriString(s);
 		#elseif python
 			return python.lib.urllib.Parse.quote(s);
+		#elseif lua
+		untyped __lua__("local hex={}
+		for i=0,255 do
+    		hex[string.format('%0x',i)]=string.char(i)
+    		hex[string.format('%0X',i)]=string.char(i)
+		end");
+		untyped __lua__("local format = string.format
+		local strbyte = string.byte
+		local function hex(ch)
+			return format('%%%02x', strbyte(ch))
+		end");
+			return untyped __lua__("(string.gsub(s, '[^-._/a-zA-Z0-9]', hex))");
 		#else
 			return null;
 		#end
@@ -63,7 +75,7 @@ class StringTools {
 	/**
 		Decode an URL using the standard format.
 	**/
-	#if (!java && !cpp) inline #end public static function urlDecode( s : String ) : String {
+	#if (!java && !cpp && !lua) inline #end public static function urlDecode( s : String ) : String {
 		#if flash9
 			return untyped __global__["decodeURIComponent"](s.split("+").join(" "));
 		#elseif flash
@@ -82,6 +94,13 @@ class StringTools {
 			return untyped cs.system.Uri.UnescapeDataString(s);
 		#elseif python
 			return python.lib.urllib.Parse.unquote(s);
+		#elseif lua
+			untyped __lua__("local hex={}
+			for i=0,255 do
+	    		hex[string.format('%0x',i)]=string.char(i)
+	    		hex[string.format('%0X',i)]=string.char(i)
+			end");
+			return untyped __lua__("(string.gsub(s,'%%(%x%x)',hex))");
 		#else
 			return null;
 		#end
